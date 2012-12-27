@@ -1,5 +1,5 @@
 <head>
-  <title>Leaderboard</title>
+    <title>Leaderboard</title>
     <!-- Fragment Shader //-->
     <script id='shader-fs' type='x-shader/x-fragment'>
         #ifdef GL_ES
@@ -26,41 +26,39 @@
 </head>
 
 <body>
-  <div id="outer">
+<div id="outer">
     {{> leaderboard}}
-  </div>
+</div>
 </body>
 
 <template name="leaderboard">
-  <div class="leaderboard">
-    {{#each players}}
-      {{> player}}
-    {{/each}}
-  </div>
-
-  {{#if selected_name}}
-  <div class="details">
-    <div class="name">{{selected_name}}</div>
-    <!--<input type="button" class="inc" value="Give 5 points" />-->
-    <div id='contents'>
-      {{#constant}}
-          <canvas id='canvas-element-id' width='480' height='400'>
-              Your browser does not support the HTML5 canvas element.
-          </canvas>
-      {{/constant}}
+    <div class="leaderboard">
+        {{#each players}}
+        {{> player}}
+        {{/each}}
     </div>
-  </div>
-  {{/if}}
 
-  {{#unless selected_name}}
-  <div class="none">Click a player to select</div>
-  {{/unless}}
+    {{#if selected_name}}
+    <div class="name">{{selected_name}}</div>
+    {{/if}}
+
+    {{#unless selected_name}}
+    <div class="none">Click a player to select</div>
+    {{/unless}}
+
+    <div id='contents'>
+        {{#constant}}
+        <canvas id='canvas-element-id' width='480' height='400'>
+            Your browser does not support the HTML5 canvas element.
+        </canvas>
+        {{/constant}}
+    </div>
 </template>
 
 <template name="player">
-  <div class="player {{selected}}">
-    <span class="name">{{name}}</span>
-    <span class="score">{{score}}</span>
-  </div>
+    <div class="player {{selected}}">
+        <span class="name">{{name}}</span>
+        <span class="score">{{score}}</span>
+    </div>
 </template>
 
